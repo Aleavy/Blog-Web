@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block head %}
+<title>Add Article</title>
+{% endblock %} {% block body%}
+<div class="forms">
+  <form action="{{ url_for('add_article') }}" method="post" class="form-body">
+    <div class="row">
+      <div class="col-25">
+        <label for="title">Title</label>
+      </div>
+      <div class="col-75">
+        <input
+          type="text"
+          id="title"
+          name="title"
+          placeholder="Insert your title.."
+          required
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="article">Article Body</label>
+      </div>
+      <div class="col-75">
+        <textarea
+          name="article"
+          id="article"
+          placeholder="Insert the body of the article:"
+          required
+        ></textarea>
+      </div>
+      <div class="row">
+        <input type="submit" value="Submit" />
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

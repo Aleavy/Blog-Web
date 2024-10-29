@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Annie Use Your Telescope"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{url_for("static", filename="styles.css")}}">
+    {% block head %} {% endblock %}
+  </head>
+  <body>
+    <header>
+      <a href="https://github.com/aleavy" class="logo">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+          alt="github_logo"
+        />
+      </a>
+      <h2 class="nombre_pagina">Blog de Articulos</h2>
+
+      <nav>
+        <a href="{{ url_for('hello')}}" class="nav-link">Home</a>
+        <a href="{{ url_for('add_article')}}" class="nav-link">Add Article</a>
+        <a href="{{ url_for('delete_article')}}" class="nav-link"
+          >Delete Article</a
+        >
+      </nav>
+    </header>
+    {% block body%} {% endblock %}
+  </body>
+</html>
