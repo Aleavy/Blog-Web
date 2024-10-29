@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block head %}
+<title>Deleting an Article</title>
+{% endblock %} {% block body %}
+
+<div class="show">
+  {% if articles|length > 0%}
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Id</th>
+      <th>Action</th>
+    </tr>
+    {% for article in articles %}
+    <tr>
+      <td>{{ article.title }}</td>
+      <td>{{ article.id }}</td>
+      <td>
+        <form
+          action="{{ url_for('delete_article', id=article.id) }}"
+          method="POST"
+        >
+          <input type="submit" value="Delete" class="delete-button" />
+        </form>
+      </td>
+      {% endfor %}
+    </tr>
+  </table>
+  {% else %}
+  <h1>No Articles have been Found.</h1>
+  {% endif %}
+</div>
+{% endblock %}
